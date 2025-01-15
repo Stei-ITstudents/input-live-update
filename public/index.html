@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Text Update</title>
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <input type="text" id="textInput" placeholder="Enter text here...">
+  <input type="range" id="fontSizeSlider" min="10" max="100" value="24">
+  <p id="currFontSize">24px</p>
+  <h2 id="displayText">Scrie ceva...</h2>
+
+  <script>
+    const textInput = document.getElementById("textInput");
+    const fontSizeSlider = document.getElementById("fontSizeSlider");
+    const displayText = document.getElementById("displayText");
+    const currFontSize = document.getElementById("currFontSize");
+
+    textInput.addEventListener("input", () => {
+      displayText.textContent = textInput.value;
+    });
+
+    fontSizeSlider.addEventListener("input", () => {
+      let newFontSize = fontSizeSlider.value;
+      displayText.style.fontSize = newFontSize + "px";
+      currFontSize.textContent = newFontSize + "px";
+    });
+  </script>
+</body>
+
+</html>
